@@ -1,0 +1,42 @@
+---
+import type { ExternalResource } from "../types/landing";
+
+interface Props {
+  resources: readonly ExternalResource[];
+}
+
+const { resources } = Astro.props;
+---
+
+<section id="recursos" class="resources-section bg-paper py-20 sm:py-28">
+  <div class="container-page">
+    <div class="grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
+      <h2 class="section-title">Más ayuda, cuando la necesites</h2>
+      <div class="lg:pt-3">
+        <p class="body-copy">Este grid queda como repositorio complementario para enlaces y videos externos. No sustituye los cuatro tutoriales principales ni cambia el flujo de la guía.</p>
+        <p class="mt-4 max-w-xl text-sm font-bold text-muted">Los enlaces externos se incorporarán después de seleccionar y validar cada recurso.</p>
+      </div>
+    </div>
+
+    <div class="resource-filters mt-10 flex gap-2 overflow-x-auto pb-3" role="group" aria-label="Filtrar recursos complementarios">
+      <button class="filter-button" type="button" aria-pressed="true" data-resource-filter="todos">Todos</button>
+      <button class="filter-button" type="button" aria-pressed="false" data-resource-filter="actividades">Actividades</button>
+      <button class="filter-button" type="button" aria-pressed="false" data-resource-filter="foros">Foros</button>
+      <button class="filter-button" type="button" aria-pressed="false" data-resource-filter="evaluaciones">Seguimiento</button>
+      <button class="filter-button" type="button" aria-pressed="false" data-resource-filter="celular">Celular</button>
+    </div>
+
+    <div class="resource-grid mt-4">
+      {resources.map((resource) => (
+        <article class="resource-card" data-resource-category={resource.category}>
+          <div class="resource-marker" aria-hidden="true">↗</div>
+          <div class="resource-meta label"><span>Recurso externo</span><span>{resource.type}</span></div>
+          <h3>{resource.title}</h3>
+          <p>{resource.note}</p>
+          <span class="resource-status">Tema de apoyo</span>
+        </article>
+      ))}
+    </div>
+    <p id="resource-count" class="mt-5 text-sm font-bold" aria-live="polite">{resources.length} recursos complementarios</p>
+  </div>
+</section>

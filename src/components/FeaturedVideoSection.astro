@@ -1,0 +1,38 @@
+---
+import type { FeaturedVideo } from "../types/landing";
+
+interface Props {
+  video: FeaturedVideo;
+}
+
+const { video } = Astro.props;
+---
+
+<article id={video.anchor} class:list={["featured-video", `feature-${video.accent}`]}>
+  <div class="container-page grid gap-10 py-20 sm:py-28 lg:grid-cols-[0.88fr_1.12fr] lg:items-start lg:gap-16">
+    <div class="video-preview" role="img" aria-label={`Espacio para el video: ${video.title}`}>
+      <div class="video-preview-top"><span>VIDEO {video.id}</span><span>RECURSO PRINCIPAL</span></div>
+      <div class="video-preview-body">
+        <span class="video-index">{video.id}</span>
+        <span class="video-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 7 8 5-8 5z" fill="currentColor" /></svg></span>
+        <strong>{video.posterLabel}</strong>
+        <small>Procedimiento guiado con subtítulos y transcripción.</small>
+      </div>
+      <div class="video-preview-footer"><span>Subtítulos</span><span>Transcripción</span><span>Acceso sin autoplay</span></div>
+    </div>
+
+    <div class="video-copy">
+      <p class="label video-label">{video.id} / {video.label}</p>
+      <h2>{video.title}</h2>
+      <p class="video-intro-copy">{video.intro}</p>
+      <div class="video-context"><strong>Antes de empezar</strong><p>{video.context}</p></div>
+      <div class="video-steps">
+        <h3>Pasos del tutorial</h3>
+        <ol>
+          {video.steps.map((step, index) => <li><span>{index + 1}</span><p>{step}</p></li>)}
+        </ol>
+      </div>
+      <div class="video-result"><span aria-hidden="true">✓</span><p><strong>Al terminar</strong>{video.result}</p></div>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,24 @@
+---
+import type { FeaturedVideo } from "../types/landing";
+import FeaturedVideoSection from "./FeaturedVideoSection.astro";
+
+interface Props {
+  videos: readonly FeaturedVideo[];
+}
+
+const { videos } = Astro.props;
+---
+
+<section id="videos" class="video-library">
+  <div class="video-intro bg-paper py-20 sm:py-28">
+    <div class="container-page grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+      <h2 class="section-title">Cuatro tutoriales para usar Moodle en tu asignatura</h2>
+      <div class="lg:pt-3">
+        <p class="body-copy">No necesitas recorrer un catálogo interminable. Empieza por la duda que tienes y sigue los pasos hasta reconocer qué ocurrió.</p>
+        <p class="mt-5 max-w-xl border-t border-coral pt-4 font-bold">No importa desde dónde consultes el tutorial: sigue el procedimiento y revisa la señal final antes de continuar.</p>
+      </div>
+    </div>
+  </div>
+
+  {videos.map((video) => <FeaturedVideoSection video={video} />)}
+</section>
