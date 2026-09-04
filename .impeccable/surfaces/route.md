@@ -21,17 +21,17 @@ La persona identifica qué puede resolver, elige su dispositivo, llega a un tuto
 
 ## Scope and boundaries
 
-Una landing de una sola página con anclas, índice por necesidad, fichas de tutorial, sección móvil, ayuda y cierre institucional. No incluye login, progreso personal, mesa de ayuda, explicación disciplinar ni claims institucionales no verificados. Las referencias de `docs/img` son inspiración, no activos reutilizables.
+Una landing de una sola página con anclas, contexto de la asignatura, ruta de preparación, cuatro secciones de videotutorial y un repositorio secundario de recursos externos. No incluye login, progreso personal, mesa de ayuda, explicación disciplinar ni claims institucionales no verificados. Las referencias de `docs/img` son inspiración, no activos reutilizables.
 
 ## Interaction and layout
 
-Navegación compacta, filtros por categoría/dispositivo con texto y estados accesibles, posters 16:9, detalle sin modal obligatorio y foco de teclado visible. Retícula de hasta tres columnas en escritorio, dos en tablet y una en celular; sin carruseles ni autoplay.
+Navegación compacta, anclas a la asignatura, cuatro tutoriales, repositorio y ayuda, posters 16:9, alternativas textuales y foco de teclado visible. Retícula de hasta tres columnas en escritorio, dos en tablet y una en celular solo para el repositorio externo; los tutoriales principales ocupan secciones corridas. Sin carruseles ni autoplay.
 
-El momento memorable es un recorrido continuo: el trazo de cuatro acciones se dibuja al desplazarse y desemboca en una escena GSAP fijada donde una computadora y un celular se desplazan, escalan y giran para mostrar que comparten una meta, pero no el mismo flujo. Con movimiento reducido, la escena permanece estática y toda la información conserva el mismo orden.
+El momento memorable es un recorrido continuo: el trazo de cuatro decisiones se dibuja al desplazarse y desemboca en la sección amarilla de contexto, donde una ilustración de una estudiante con laptop se desplaza y gira con el scroll. Los cuatro espacios audiovisuales entran desde lados alternos para marcar el cambio de tutorial sin ocultar información. Con movimiento reducido, la escena permanece estática y toda la información conserva el mismo orden.
 
 ## Unresolved decisions
 
 - Identidad institucional, URL de Moodle, canal de soporte y permisos de imágenes.
 - Navegador móvil, app oficial de Moodle o ambos; Android, iOS o ambos.
 - Versión/tema/configuración real de Moodle y estados exactos de entrega.
-- Fuentes definitivas, duración objetivo y orden de producción de videos.
+- Fuentes definitivas, duración objetivo y fecha de producción de los cuatro videos.

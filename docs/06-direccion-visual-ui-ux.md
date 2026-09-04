@@ -35,8 +35,8 @@ El primer viewport debe resolver en pocos segundos qué es la página y cómo em
 
 1. **Navegación compacta:** nombre del recurso, anclas a “Ruta rápida”, “Tutoriales”, “Celular” y “Ayuda”, más un CTA de “Ver videotutoriales”.
 2. **Hero en dos zonas:** a la izquierda, el título “Moodle para Igualdad de Género” y una promesa orientada a resultado; debajo, el CTA principal. A la derecha, una ilustración humana o composición de dispositivo que muestre acompañamiento y aprendizaje, no una pantalla abstracta.
-3. **Acceso inmediato por contexto:** chips visibles para “Computadora” y “Celular”, con texto e indicador de forma, no solo color.
-4. **Prueba de utilidad:** una franja breve con las cuatro acciones prioritarias: ingresar, localizar, realizar y comprobar.
+3. **Contexto de cursada:** una nota clara sobre primer año, semestre asignado y modalidad en línea, sin presentar datos no verificados.
+4. **Prueba de utilidad:** una franja breve con las cuatro acciones prioritarias: entrar, entregar, participar y comprobar.
 
 El hero no debe utilizar un carrusel, un video autoplay ni un formulario de registro. El foco inicial es llegar a un tutorial.
 
@@ -46,28 +46,32 @@ El hero no debe utilizar un carrusel, un video autoplay ni un formulario de regi
 
 Secuencia estática para primeras visitas. Cada paso incluye verbo, resultado esperado y ancla al grupo de tutoriales correspondiente. No comunica avance guardado ni necesita una cuenta.
 
-### 2. Índice por necesidad
+### 2. Contexto y ruta de preparación
 
-Los cuatro grupos del brief se presentan como bloques fácilmente escaneables: acceso, tareas y actividades, foros, avance y evaluaciones. La sección móvil duplica los objetivos con pasos específicos del dispositivo, no una simple etiqueta sobre el contenido de escritorio.
+La sección amarilla explica cuándo corresponde cursar la asignatura y qué revisar antes de abrir Moodle. La ruta oscura convierte esa información en cuatro decisiones concretas: revisar la tira de materias, confirmar el momento, entrar a la plataforma y elegir una duda.
 
-### 3. Fichas de tutorial
+### 3. Cuatro secciones de tutorial
 
-Cada ficha debe exponer en el primer vistazo:
+Cada sección debe exponer en el primer vistazo:
 
-- título como pregunta o acción;
-- still o poster con botón de reproducción;
-- dispositivo;
-- duración;
-- resultado esperado en una línea;
-- CTA “Ver tutorial”.
+- número y acción concreta;
+- espacio audiovisual 16:9 sin autoplay;
+- contexto de la asignatura;
+- pasos visibles;
+- resultado esperado;
+- subtítulos y transcripción cuando se integre el video.
 
-En el detalle, el video comparte protagonismo con pasos, confirmación final, problema frecuente, transcripción y tutoriales relacionados. La información no depende de abrir un modal.
+El video comparte protagonismo con los pasos y la confirmación final. La información no depende de abrir un modal ni de distinguir si el recurso viene de YouTube, redes u otra plataforma.
 
-### 4. Ayuda
+### 4. Repositorio complementario
+
+La retícula de tarjetas se conserva como un repositorio filtrable de recursos externos para dudas puntuales. Es una capa secundaria: no compite con los cuatro tutoriales ni presenta una lista artificial de videos principales.
+
+### 5. Ayuda
 
 Las preguntas frecuentes se agrupan por situación (“no puedo entrar”, “no encuentro la asignatura”, “no sé si se envió”) y distinguen lo que puede resolver el estudiante de lo que requiere al docente o a un canal institucional. No prometer un soporte integrado que está fuera de alcance.
 
-### 5. Cierre
+### 6. Cierre
 
 El pie de página contiene identidad institucional autorizada, enlace a Moodle, soporte, accesibilidad, privacidad y fecha de actualización. El cierre debe volver a ofrecer una ruta útil, no terminar en una pared de enlaces.
 

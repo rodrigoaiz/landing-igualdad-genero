@@ -190,7 +190,7 @@ La estrategia es **full palette**: el papel y la tinta sostienen la lectura; ín
 
 ## Layout
 
-La página usa un contenedor centrado con lectura cómoda y bandas de color a ancho completo. El contenido se organiza en una retícula flexible de 12 columnas en escritorio, con tutoriales en 3 columnas como máximo; en tablet pasa a 2 y en celular a una columna. El primer viewport combina propósito, CTA principal, acceso por dispositivo y una imagen/ilustración humana; no introduce un carrusel.
+La página usa un contenedor centrado con lectura cómoda y bandas de color a ancho completo. El primer viewport combina propósito, información de cursada, CTA principal y una ilustración humana; no introduce un carrusel. Los cuatro tutoriales principales viven como secciones largas dentro del recorrido, cada una con su espacio audiovisual, contexto, pasos y confirmación. El repositorio secundario conserva una retícula flexible de 12 columnas para recursos externos: tres columnas en escritorio, dos en tablet y una en celular.
 
 El ritmo base usa múltiplos de 8 px. Hay más espacio antes de cada título que después de él. Las secciones alternan densidad: hero expresivo, ruta rápida compacta, índice de tutoriales escaneable, detalle de ayuda y cierre institucional. Los anclajes de navegación deben aterrizar en el título y contexto de la sección, no detrás de un encabezado fijo.
 
@@ -217,11 +217,11 @@ Los posters de video y las imágenes llevan el mismo radio que su ficha. Los bor
 
 ## Motion
 
-El movimiento funciona como orientación espacial. GSAP y ScrollTrigger conectan la ruta de cuatro acciones, dibujan el trazo conforme avanza el scroll y fijan la comparación entre computadora y celular mientras ambos dispositivos cambian de posición, escala y giro. Los posters solo reciben una rotación breve ligada al scroll; no se aplica una aparición idéntica a cada sección.
+El movimiento funciona como orientación espacial. GSAP y ScrollTrigger conectan la ruta de preparación, dibujan el trazo conforme avanza el scroll y acompañan el contexto de la asignatura con una ilustración que se desplaza y gira suavemente. Las cuatro secciones de tutorial también tienen entradas laterales distintas para sostener el recorrido largo; no se aplica una aparición idéntica a cada sección.
 
 - Las escenas animan transformaciones y trazos, no propiedades que recalculen el layout.
 - El contenido permanece legible con JavaScript desactivado y conserva contraste completo antes de entrar al viewport.
-- En escritorio la escena de dispositivos puede fijarse; en móvil se desplaza dentro del flujo para evitar bloquear la lectura.
+- Las ilustraciones y los espacios audiovisuales se mueven dentro del flujo; no se fija contenido esencial ni se bloquea la lectura.
 - `prefers-reduced-motion: reduce` elimina ScrollTrigger, progreso, entradas y suavizado de scroll sin ocultar información.
 
 ## Components
@@ -262,11 +262,11 @@ El movimiento funciona como orientación espacial. GSAP y ScrollTrigger conectan
 
 ### Quick Path
 
-Una secuencia de cuatro pasos —ingresa, localiza, realiza, comprueba— que orienta a quien llega por primera vez. Es guía estática: no representa progreso personal ni almacena datos del estudiante.
+Una secuencia de cuatro decisiones —revisa tu tira, confirma el momento, entra a la plataforma y elige la duda— que orienta a quien llega por primera vez. Es guía estática: no representa progreso personal ni almacena datos del estudiante.
 
 ### Tutorial Detail
 
-El detalle reúne video, objetivo, pasos, señal de confirmación, problemas frecuentes, transcripción y tutoriales relacionados. La ficha debe poder leerse y operarse sin abrir un modal; si se usa expansión, debe anunciar estado, conservar foco y ofrecer una URL/ancla estable.
+Cada una de las cuatro secciones reúne video, objetivo, contexto de la asignatura, pasos, señal de confirmación y alternativa textual. El detalle vive en el flujo de la página, sin modal ni expansión que esconda información esencial. La plataforma donde se publique el video no forma parte de la interfaz del estudiante.
 
 ## Do's and Don'ts
 

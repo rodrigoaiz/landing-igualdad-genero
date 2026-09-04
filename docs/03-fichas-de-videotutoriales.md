@@ -70,4 +70,6 @@ Problema frecuente y acción recomendada.
 
 ## Recomendación de producción
 
-Los cuatro temas generales pueden funcionar como categorías, pero no necesariamente como cuatro videos únicos. Los clips cortos por acción facilitan que el estudiante encuentre la respuesta exacta, permiten actualizar solamente el procedimiento que cambie y funcionan mejor en celular.
+La primera versión contempla como máximo cuatro videotutoriales principales, uno por sección: ingreso a la asignatura, entrega de una actividad, participación en un foro y consulta de avance/calificaciones/retroalimentación. Cada video se integra en la misma página con su contexto y sus pasos; la plataforma de publicación es un detalle técnico transparente para el estudiante.
+
+Las dudas muy puntuales que no entren en esas cuatro piezas pueden vivir en el repositorio de recursos externos. No deben competir visualmente con los tutoriales principales ni multiplicar versiones por dispositivo sin una necesidad editorial comprobada.

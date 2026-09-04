@@ -37,8 +37,8 @@ El primer bloque debe comunicar en segundos qué es la landing, para quién es y
 
 1. **Navegación compacta:** nombre de la guía, anclas a “Ruta rápida”, “Tutoriales”, “Celular” y “Ayuda”, más un CTA de “Ver videotutoriales”.
 2. **Hero en dos zonas:** a la izquierda, el título “Moodle para Igualdad de Género” y una promesa orientada a resultado; debajo, el CTA principal. A la derecha, una ilustración humana o composición de dispositivo que muestre acompañamiento y aprendizaje, no una pantalla abstracta.
-3. **Acceso inmediato por contexto:** chips visibles para “Computadora” y “Celular”, con texto e indicador de forma, no solo color.
-4. **Prueba de utilidad:** una franja breve con las cuatro acciones prioritarias: ingresar, localizar, realizar y comprobar.
+3. **Contexto de cursada:** la información visible explica que la asignatura es obligatoria, se cursa durante el primer año y puede corresponder al primer o segundo semestre.
+4. **Prueba de utilidad:** una franja breve con las cuatro acciones prioritarias: entrar, entregar, participar y comprobar.
 
 El hero no debe utilizar un carrusel, un video autoplay ni un formulario de registro. La imagen no debe ocupar el espacio que necesita el CTA o la explicación principal.
 
@@ -47,7 +47,7 @@ El hero no debe utilizar un carrusel, un video autoplay ni un formulario de regi
 - Mantener una navegación con pocos niveles y anclas a **Ruta rápida**, **Tutoriales**, **Celular** y **Ayuda**.
 - Presentar primero las acciones de mayor frecuencia: entrar, localizar, entregar y comprobar.
 - Permitir dos recorridos: secuencia guiada para primeras visitas y acceso directo por necesidad.
-- Mantener visible el contexto de dispositivo en la navegación, filtros, tarjetas y detalle.
+- Mantener visible el contexto de uso cuando un procedimiento cambie entre computadora y celular, sin convertirlo en una colección de versiones duplicadas.
 - No esconder tutoriales importantes detrás de carruseles, pestañas sin estado visible o interacciones que dependan de hover.
 - Las anclas deben aterrizar en el título y contexto de la sección, no debajo de una navegación fija.
 - En celular, el menú debe ser compacto pero estar etiquetado; un icono sin nombre accesible no es suficiente.
@@ -76,19 +76,18 @@ Las categorías de navegación se mantienen alineadas con la arquitectura de con
 
 Los chips de categoría y dispositivo deben ser botones o enlaces reales, no elementos decorativos. El estado seleccionado se comunica con texto, forma, borde o posición además de color. Si filtran contenido, deben anunciar cuántos resultados quedan o actualizar una región accesible.
 
-## Fichas de videotutoriales
+## Secciones de videotutoriales
 
-Cada tarjeta debe poder entenderse sin abrirla:
+Cada una de las cuatro secciones principales debe poder entenderse sin depender de un reproductor:
 
 - título en forma de pregunta o acción concreta;
-- still/poster con botón de reproducción accesible;
-- duración visible;
-- distintivo de **Computadora** o **Celular**;
-- categoría;
-- resumen de una línea que describa el resultado;
-- CTA **“Ver tutorial”**.
+- espacio audiovisual con poster 16:9 y botón de reproducción cuando exista el video;
+- contexto de la asignatura y resultado que se debe reconocer;
+- pasos resumidos y alternativa textual;
+- subtítulos y transcripción;
+- plataforma de publicación oculta para el estudiante.
 
-Al abrir el detalle, el orden recomendado es: video, objetivo, antes de comenzar, pasos resumidos, señal de confirmación, si algo no funciona, transcripción y tutoriales relacionados. El contenido esencial no debe depender de un modal; si se usa expansión, anunciar “Mostrar pasos”/“Ocultar pasos”, conservar el foco y permitir cerrar con Escape.
+El orden recomendado es: video, objetivo, antes de comenzar, pasos resumidos y señal de confirmación. El contenido esencial no depende de un modal ni de una expansión. Las dudas puntuales que no formen parte de las cuatro piezas pueden entrar al repositorio externo secundario.
 
 La tarjeta debe priorizar el procedimiento real sobre el tratamiento gráfico. Si aún no existe un poster definitivo, marcar el recurso como provisional; no usar una referencia visual como si fuera captura de Moodle.
 
