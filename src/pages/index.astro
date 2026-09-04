@@ -1,0 +1,603 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const toAnchor = (title: string) => title
+  .normalize("NFD")
+  .replace(/[\u0300-\u036f]/g, "")
+  .toLowerCase()
+  .replace(/[^a-z0-9]+/g, "-")
+  .replace(/(^-|-$)/g, "");
+
+const tutorials = [
+  {
+    title: "¿Cómo ingresar a Moodle?",
+    category: "acceso",
+    categoryLabel: "Ingresar",
+    device: "computadora",
+    summary: "Ubica el acceso correcto y reconoce cuándo tu sesión está iniciada.",
+  },
+  {
+    title: "¿Cómo localizar la asignatura?",
+    category: "acceso",
+    categoryLabel: "Ingresar",
+    device: "computadora",
+    summary: "Encuentra el curso de Igualdad de Género desde tu área personal.",
+  },
+  {
+    title: "¿Cómo subir un archivo?",
+    category: "actividades",
+    categoryLabel: "Actividades",
+    device: "computadora",
+    summary: "Prepara y adjunta el archivo solicitado sin perder tu trabajo.",
+  },
+  {
+    title: "¿Cómo entregar una tarea?",
+    category: "actividades",
+    categoryLabel: "Actividades",
+    device: "computadora",
+    summary: "Completa la entrega y llega hasta la confirmación final.",
+  },
+  {
+    title: "¿Cómo comprobar que se envió?",
+    category: "actividades",
+    categoryLabel: "Actividades",
+    device: "computadora",
+    summary: "Distingue una entrega guardada de una entrega realmente enviada.",
+  },
+  {
+    title: "¿Cómo modificar una entrega?",
+    category: "actividades",
+    categoryLabel: "Actividades",
+    device: "computadora",
+    summary: "Identifica si todavía puedes reemplazar o editar tu archivo.",
+  },
+  {
+    title: "¿Cómo consultar la retroalimentación?",
+    category: "evaluaciones",
+    categoryLabel: "Resultados",
+    device: "computadora",
+    summary: "Localiza los comentarios asociados con una actividad revisada.",
+  },
+  {
+    title: "¿Cómo participar en un foro?",
+    category: "foros",
+    categoryLabel: "Foros",
+    device: "computadora",
+    summary: "Publica una participación y comprueba que aparece en la conversación.",
+  },
+  {
+    title: "¿Cómo responder a una participación?",
+    category: "foros",
+    categoryLabel: "Foros",
+    device: "computadora",
+    summary: "Responde dentro del hilo correcto y conserva el contexto del diálogo.",
+  },
+  {
+    title: "¿Cómo agregar archivos a un foro?",
+    category: "foros",
+    categoryLabel: "Foros",
+    device: "computadora",
+    summary: "Adjunta una imagen o archivo a tu intervención antes de publicarla.",
+  },
+  {
+    title: "¿Cómo consultar mi avance?",
+    category: "evaluaciones",
+    categoryLabel: "Resultados",
+    device: "computadora",
+    summary: "Reconoce qué actividades aparecen como completadas en tu curso.",
+  },
+  {
+    title: "¿Cómo consultar mis calificaciones?",
+    category: "evaluaciones",
+    categoryLabel: "Resultados",
+    device: "computadora",
+    summary: "Encuentra las evaluaciones publicadas y su retroalimentación disponible.",
+  },
+  {
+    title: "¿Cómo realizar una actividad H5P?",
+    category: "evaluaciones",
+    categoryLabel: "Resultados",
+    device: "computadora",
+    summary: "Completa una actividad interactiva y reconoce su resultado final.",
+  },
+  {
+    title: "¿Cómo acceder desde mi celular?",
+    category: "celular",
+    categoryLabel: "Celular",
+    device: "celular",
+    summary: "Entra al entorno móvil que el equipo defina como referencia.",
+  },
+  {
+    title: "¿Cómo localizar la asignatura en celular?",
+    category: "celular",
+    categoryLabel: "Celular",
+    device: "celular",
+    summary: "Ubica el curso cuando la navegación cambia en una pantalla pequeña.",
+  },
+  {
+    title: "¿Cómo entregar desde mi celular?",
+    category: "celular",
+    categoryLabel: "Celular",
+    device: "celular",
+    summary: "Adjunta y envía una actividad desde el flujo móvil verificado.",
+  },
+  {
+    title: "¿Cómo participar en un foro desde celular?",
+    category: "celular",
+    categoryLabel: "Celular",
+    device: "celular",
+    summary: "Publica una respuesta desde una interfaz pensada para pantalla pequeña.",
+  },
+  {
+    title: "¿Cómo consultar calificaciones en celular?",
+    category: "celular",
+    categoryLabel: "Celular",
+    device: "celular",
+    summary: "Encuentra resultados y comentarios desde el recorrido móvil.",
+  },
+];
+
+const routeSteps = [
+  {
+    action: "Ingresa a Moodle",
+    result: "La meta es reconocer que la sesión quedó iniciada antes de buscar cualquier actividad.",
+    filter: "acceso",
+  },
+  {
+    action: "Localiza la asignatura",
+    result: "Encuentra Igualdad de Género desde el espacio donde Moodle reúne tus cursos.",
+    filter: "acceso",
+  },
+  {
+    action: "Realiza la actividad",
+    result: "Elige el procedimiento correcto para una tarea, un foro, un cuestionario o H5P.",
+    filter: "actividades",
+  },
+  {
+    action: "Comprueba el resultado",
+    result: "Busca el estado, la marca o el mensaje que confirme lo ocurrido antes de salir.",
+    filter: "evaluaciones",
+  },
+];
+---
+
+<BaseLayout
+  title="Moodle para Igualdad de Género | Guía rápida"
+  description="Videotutoriales y guías breves para resolver tareas frecuentes de Moodle en la asignatura de Igualdad de Género."
+>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <header class="sticky top-0 z-50 border-b border-ink/15 bg-paper/95">
+    <div class="container-page flex min-h-20 items-center justify-between gap-5">
+      <a class="flex items-center gap-3 no-underline" href="#inicio">
+        <span class="grid size-11 place-items-center rounded-md bg-indigo font-display text-2xl font-extrabold text-yellow" aria-hidden="true">M</span>
+        <span class="max-w-36 text-sm font-bold leading-tight sm:max-w-none">Moodle para<br class="sm:hidden" /> Igualdad de Género</span>
+      </a>
+
+      <nav class="hidden items-center gap-6 lg:flex" aria-label="Navegación principal">
+        <a class="nav-link text-sm font-bold" href="#ruta">Ruta rápida</a>
+        <a class="nav-link text-sm font-bold" href="#dispositivos">Dispositivos</a>
+        <a class="nav-link text-sm font-bold" href="#tutoriales">Tutoriales</a>
+        <a class="nav-link text-sm font-bold" href="#ayuda">Ayuda</a>
+        <a class="button-primary" href="#tutoriales">Ver videotutoriales</a>
+      </nav>
+
+      <details class="relative lg:hidden" data-mobile-menu>
+        <summary class="flex min-h-11 cursor-pointer list-none items-center gap-2 rounded-md border border-ink px-3 text-sm font-bold">
+          Menú
+          <svg class="size-4" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" fill="none" stroke="currentColor" stroke-width="2" /></svg>
+        </summary>
+        <nav class="absolute right-0 top-[calc(100%+0.75rem)] grid w-64 gap-1 rounded-xl bg-ink p-3 text-paper shadow-xl" aria-label="Navegación móvil">
+          <a class="min-h-11 rounded-md px-3 py-3 font-bold hover:bg-indigo" href="#ruta">Ruta rápida</a>
+          <a class="min-h-11 rounded-md px-3 py-3 font-bold hover:bg-indigo" href="#dispositivos">Dispositivos</a>
+          <a class="min-h-11 rounded-md px-3 py-3 font-bold hover:bg-indigo" href="#tutoriales">Tutoriales</a>
+          <a class="min-h-11 rounded-md px-3 py-3 font-bold hover:bg-indigo" href="#ayuda">Ayuda</a>
+        </nav>
+      </details>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section id="inicio" class="relative overflow-hidden bg-paper py-12 sm:py-18 lg:py-24">
+      <div class="container-page grid items-center gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:gap-4">
+        <div class="hero-copy relative z-10">
+          <h1 class="display-title">
+            Moodle sin perderte
+            <span class="relative inline-block text-indigo">
+              en el camino
+              <svg class="absolute -bottom-3 left-0 w-full text-coral" viewBox="0 0 430 30" aria-hidden="true">
+                <path d="M5 17c92-20 269-15 420 2" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="9" />
+              </svg>
+            </span>
+          </h1>
+          <p class="body-copy mt-9 max-w-[34rem]">
+            Guías breves para entrar a la asignatura de Igualdad de Género, realizar tus actividades y comprobar que todo quedó listo.
+          </p>
+          <div class="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <a class="button-primary" href="#tutoriales">
+              Ver videotutoriales
+              <svg class="size-4" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13m-5-5 5 5-5 5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" /></svg>
+            </a>
+            <a class="button-secondary" href="#ruta">Seguir la ruta rápida</a>
+          </div>
+          <div class="mt-7 flex flex-wrap gap-2" aria-label="Disponible por contexto">
+            <a class="filter-button no-underline" href="#tutoriales" data-filter-link="computadora">Pantalla: computadora</a>
+            <a class="filter-button no-underline" href="#tutoriales" data-filter-link="celular">Pantalla: celular</a>
+          </div>
+        </div>
+
+        <div class="hero-board" aria-label="Vista ilustrativa de una guía abierta en Moodle">
+          <div class="hero-screen" aria-hidden="true">
+            <div class="hero-screen-bar"><span></span><span></span><span></span></div>
+            <div class="hero-screen-content">
+              <div class="hero-screen-menu">
+                <span class="w-4/5"></span><span class="w-3/5"></span><span class="w-4/6"></span>
+              </div>
+              <div class="hero-screen-main">
+                <span class="w-4/5"></span><span class="w-3/5"></span>
+                <div class="screen-card"></div>
+                <span class="w-2/5"></span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-note">
+            <strong class="block font-display text-2xl leading-none">No adivines.</strong>
+            Busca la confirmación antes de salir.
+          </div>
+          <div class="hero-orbit" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="bg-indigo text-paper">
+      <div class="proof-strip container-page flex gap-8 overflow-x-auto py-5" aria-label="Acciones principales de la guía">
+        {routeSteps.map((step) => (
+          <div class="proof-item label"><span class="proof-dot" aria-hidden="true"></span>{step.action.split(" ")[0]}</div>
+        ))}
+      </div>
+    </div>
+
+    <section id="ruta" class="bg-ink py-20 text-paper sm:py-28">
+      <div class="container-page">
+        <div class="grid gap-6 lg:grid-cols-[0.82fr_1.18fr]">
+          <h2 class="section-title">Tu primera ruta, sin saltos</h2>
+          <p class="body-copy text-paper/80 lg:pt-3">
+            Si es la primera vez que entras, sigue estas cuatro acciones. Esta ruta solo te orienta: no guarda ni consulta tu avance personal.
+          </p>
+        </div>
+
+        <div class="route-shell mt-14">
+          <svg class="route-path" viewBox="0 0 100 1000" preserveAspectRatio="none" aria-hidden="true">
+            <path data-route-line d="M45 10 C92 120, 7 205, 52 310 S90 505, 38 615 S12 820, 60 990" pathLength="1"></path>
+          </svg>
+          {routeSteps.map((step, index) => (
+            <article class="route-card">
+              <div class="route-number" aria-hidden="true">0{index + 1}</div>
+              <h3 class="route-action">{step.action}</h3>
+              <p class="route-result">{step.result}</p>
+              <a class="route-link" href="#tutoriales" data-filter-link={step.filter}>
+                Ver tutoriales relacionados
+                <svg class="size-5" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 10h13m-5-5 5 5-5 5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" /></svg>
+              </a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="dispositivos" class="device-lab">
+      <div class="device-scene container-page">
+        <div>
+          <h2 class="section-title">La misma meta. Otro recorrido.</h2>
+          <p class="body-copy mt-6">
+            Moodle reorganiza menús y acciones en una pantalla pequeña. Por eso los tutoriales de celular tendrán pasos propios, no instrucciones de computadora encogidas.
+          </p>
+          <ol class="device-copy-list">
+            <li><span>1</span><span><strong>Elige tu dispositivo</strong>Identifica “Computadora” o “Celular” antes de comenzar.</span></li>
+            <li><span>2</span><span><strong>Sigue el flujo real</strong>La guía mostrará navegador, app o ambos cuando el equipo lo confirme.</span></li>
+            <li><span>3</span><span><strong>Comprueba lo mismo</strong>Sin importar la pantalla, termina reconociendo el resultado.</span></li>
+          </ol>
+        </div>
+
+        <div class="device-table" aria-label="Comparación ilustrativa entre computadora y celular">
+          <div class="device-orbit" aria-hidden="true"></div>
+          <div class="monitor-panel" aria-hidden="true">
+            <div class="device-topbar"><span class="device-brand">COMPUTADORA</span><span>•••</span></div>
+            <div class="monitor-content">
+              <div class="monitor-nav"></div>
+              <div class="monitor-main">
+                <div class="device-block"></div><div class="device-block"></div><div class="device-block"></div>
+              </div>
+            </div>
+          </div>
+          <div class="phone-panel" aria-hidden="true">
+            <div class="device-topbar"><span class="device-brand">CELULAR</span></div>
+            <div class="phone-main">
+              <div class="device-block"></div><div class="device-block"></div><div class="device-block"></div>
+            </div>
+          </div>
+          <p class="device-label label">Vista ilustrativa, no captura de Moodle</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="tutoriales" class="bg-paper py-20 sm:py-28">
+      <div class="container-page">
+        <div class="grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
+          <h2 class="section-title">Encuentra tu siguiente paso</h2>
+          <div class="lg:pt-3">
+            <p class="body-copy">
+              Filtra por acción o dispositivo. Los videos, capturas, duraciones y transcripciones se integrarán después de validar la instalación real de Moodle.
+            </p>
+            <p class="mt-3 font-bold" id="tutorial-count" aria-live="polite">{tutorials.length} tutoriales en la guía</p>
+          </div>
+        </div>
+
+        <div class="mt-10 flex gap-2 overflow-x-auto pb-3" role="group" aria-label="Filtrar tutoriales">
+          <button class="filter-button" type="button" aria-pressed="true" data-filter="todos">Todos</button>
+          <button class="filter-button" type="button" aria-pressed="false" data-filter="acceso">Ingresar</button>
+          <button class="filter-button" type="button" aria-pressed="false" data-filter="actividades">Actividades</button>
+          <button class="filter-button" type="button" aria-pressed="false" data-filter="foros">Foros</button>
+          <button class="filter-button" type="button" aria-pressed="false" data-filter="evaluaciones">Resultados</button>
+          <button class="filter-button" type="button" aria-pressed="false" data-filter="computadora">Computadora</button>
+          <button class="filter-button" type="button" aria-pressed="false" data-filter="celular">Celular</button>
+        </div>
+
+        <div class="tutorial-grid mt-4">
+          {tutorials.map((tutorial) => (
+            <article id={toAnchor(tutorial.title)} class="tutorial-card" data-category={tutorial.category} data-device={tutorial.device}>
+              <div class:list={["tutorial-poster", `poster-${tutorial.category}`]} role="img" aria-label={`Recurso provisional para ${tutorial.title}`}>
+                <span class="poster-status">Material en preparación</span>
+                <span class="poster-mark" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="m9 7 8 5-8 5z" fill="currentColor" /></svg>
+                </span>
+              </div>
+              <div class="tutorial-body">
+                <div class="tutorial-meta">
+                  <span>{tutorial.categoryLabel}</span>
+                  <span>{tutorial.device === "celular" ? "Celular" : "Computadora"}</span>
+                  <span>Duración por confirmar</span>
+                </div>
+                <h3>{tutorial.title}</h3>
+                <p class="tutorial-summary">{tutorial.summary}</p>
+                <details class="tutorial-details">
+                  <summary>Ver alcance</summary>
+                  <p>Este espacio incluirá video con subtítulos, pasos breves, transcripción y la confirmación visual verificada en Moodle.</p>
+                </details>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div class="mt-8 flex items-start gap-4 rounded-xl bg-lilac p-5 sm:p-6">
+          <svg class="mt-1 size-7 shrink-0" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Zm0 4v6m0 4v.2" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" /></svg>
+          <p class="body-copy"><strong>Esta versión no inventa pantallas ni estados.</strong> Las piezas marcadas como “Material en preparación” esperan videos, capturas y textos validados por el equipo.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="ayuda" class="bg-indigo py-20 text-paper sm:py-28">
+      <div class="container-page grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+        <div>
+          <h2 class="section-title">Cuando algo no funciona</h2>
+          <p class="body-copy mt-6 text-paper/80">
+            No todo depende de ti. Estas respuestas distinguen una duda de uso de un problema que necesita atención institucional.
+          </p>
+        </div>
+        <div>
+          <details class="faq-item">
+            <summary>No puedo iniciar sesión</summary>
+            <p>Revisa que estés usando el acceso institucional correcto. El método exacto y el canal que puede recuperar tu cuenta deben confirmarse antes de publicar esta guía.</p>
+          </details>
+          <details class="faq-item">
+            <summary>No encuentro la asignatura</summary>
+            <p>Comprueba primero que la sesión corresponda a tu cuenta. Si el curso no aparece, puede requerir revisión de inscripción o visibilidad por parte del área responsable.</p>
+          </details>
+          <details class="faq-item">
+            <summary>No sé si mi entrega quedó registrada</summary>
+            <p>No cierres la página hasta reconocer el estado final que mostrará el tutorial verificado. El texto exacto puede cambiar según la configuración de Moodle.</p>
+          </details>
+          <details class="faq-item">
+            <summary>No veo una calificación</summary>
+            <p>Una calificación puede no estar publicada todavía. La guía mostrará dónde buscarla, pero solo el docente o el canal institucional validado puede informar sobre su disponibilidad.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="overflow-hidden bg-turquoise py-20 sm:py-24">
+      <div class="container-page grid items-center gap-10 lg:grid-cols-[1fr_auto]">
+        <div>
+          <h2 class="section-title">Entra con una duda. Sal con una señal clara.</h2>
+          <a class="button-primary mt-7" href="#tutoriales">Elegir un tutorial</a>
+        </div>
+        <svg class="closing-arrow text-ink" viewBox="0 0 300 220" aria-hidden="true">
+          <path d="M20 98c98-63 184-48 238 8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="20" />
+          <path d="m212 56 61 58-76 32" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="20" />
+        </svg>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-ink py-10 text-paper">
+    <div class="container-page grid gap-7 border-t border-paper/25 pt-8 sm:grid-cols-[1fr_auto] sm:items-end">
+      <div>
+        <p class="font-display text-3xl font-extrabold">Moodle para Igualdad de Género</p>
+        <p class="mt-2 max-w-xl text-sm leading-relaxed text-paper/75">Prototipo de orientación para estudiantes del CCH. Identidad, acceso a Moodle, soporte, privacidad y fecha de actualización pendientes de validación institucional.</p>
+      </div>
+      <a class="nav-link w-fit text-sm font-bold" href="#inicio">Volver al inicio</a>
+    </div>
+  </footer>
+
+  <script>
+    import gsap from "gsap";
+    import ScrollTrigger from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const cards = Array.from(document.querySelectorAll<HTMLElement>(".tutorial-card"));
+    const filterButtons = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-filter]"));
+    const count = document.querySelector<HTMLElement>("#tutorial-count");
+
+    const applyFilter = (filter: string) => {
+      let visible = 0;
+
+      cards.forEach((card) => {
+        const matches = filter === "todos" || card.dataset.category === filter || card.dataset.device === filter;
+        card.hidden = !matches;
+        if (matches) visible += 1;
+      });
+
+      filterButtons.forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset.filter === filter));
+      });
+
+      if (count) {
+        const selected = filterButtons.find((button) => button.dataset.filter === filter)?.textContent?.trim().toLowerCase();
+        count.textContent = filter === "todos"
+          ? `${visible} tutoriales en la guía`
+          : `${visible} ${visible === 1 ? "tutorial" : "tutoriales"} para ${selected}`;
+      }
+
+      ScrollTrigger.refresh();
+    };
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => applyFilter(button.dataset.filter ?? "todos"));
+    });
+
+    document.querySelectorAll<HTMLElement>("[data-filter-link]").forEach((link) => {
+      link.addEventListener("click", () => applyFilter(link.dataset.filterLink ?? "todos"));
+    });
+
+    document.querySelectorAll<HTMLDetailsElement>("details").forEach((detail) => {
+      detail.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && detail.open) {
+          detail.open = false;
+          detail.querySelector<HTMLElement>("summary")?.focus();
+        }
+      });
+    });
+
+    document.querySelectorAll<HTMLAnchorElement>("[data-mobile-menu] a").forEach((link) => {
+      link.addEventListener("click", () => link.closest("details")?.removeAttribute("open"));
+    });
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (!prefersReducedMotion) {
+      const motion = gsap.matchMedia();
+
+      gsap.from(".hero-copy > *", {
+        y: 38,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: "expo.out",
+      });
+
+      gsap.from(".hero-screen", {
+        x: 80,
+        rotation: 11,
+        opacity: 0,
+        duration: 0.9,
+        ease: "expo.out",
+      });
+
+      gsap.to(".scroll-progress", {
+        scaleX: 1,
+        ease: "none",
+        scrollTrigger: { trigger: document.documentElement, start: "top top", end: "bottom bottom", scrub: 0.2 },
+      });
+
+      gsap.to(".hero-screen", {
+        yPercent: 24,
+        rotation: -3,
+        ease: "none",
+        scrollTrigger: { trigger: "#inicio", start: "top top", end: "bottom top", scrub: 1 },
+      });
+
+      gsap.to(".hero-orbit", {
+        rotation: 280,
+        y: -50,
+        ease: "none",
+        scrollTrigger: { trigger: "#inicio", start: "top top", end: "bottom top", scrub: 0.8 },
+      });
+
+      gsap.fromTo("[data-route-line]", {
+        strokeDasharray: 1,
+        strokeDashoffset: 1,
+      }, {
+        strokeDashoffset: 0,
+        ease: "none",
+        scrollTrigger: { trigger: ".route-shell", start: "top 72%", end: "bottom 68%", scrub: 0.5 },
+      });
+
+      document.querySelectorAll<HTMLElement>(".route-card").forEach((card, index) => {
+        gsap.from(card, {
+          x: index % 2 === 0 ? 90 : -55,
+          rotation: index % 2 === 0 ? 2 : -2,
+          ease: "none",
+          scrollTrigger: { trigger: card, start: "top 92%", end: "top 54%", scrub: 0.7 },
+        });
+      });
+
+      motion.add("(min-width: 900px)", () => {
+        const stage = document.querySelector<HTMLElement>(".device-scene");
+        if (!stage) return;
+
+        const timeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".device-lab",
+            start: "top top",
+            end: "+=2200",
+            pin: stage,
+            scrub: 1,
+            anticipatePin: 1,
+          },
+        });
+
+        timeline
+          .to(".monitor-panel", { xPercent: -8, yPercent: 3, rotation: 1, scale: 1.06, duration: 1 })
+          .to(".phone-panel", { xPercent: -120, yPercent: -52, rotation: -12, scale: 1.08, duration: 1 }, "<")
+          .to(".device-orbit", { rotation: 220, scale: 0.82, duration: 1 }, "<")
+          .to(".monitor-panel", { xPercent: 8, yPercent: -5, rotation: -4, scale: 0.92, duration: 1 })
+          .to(".phone-panel", { xPercent: -38, yPercent: -12, rotation: 348, scale: 1.22, duration: 1 }, "<")
+          .to(".device-orbit", { rotation: 520, scale: 1.08, duration: 1 }, "<")
+          .to(".monitor-panel", { xPercent: 0, yPercent: 0, rotation: 0, scale: 1, duration: 1 })
+          .to(".phone-panel", { xPercent: -24, yPercent: -18, rotation: 360, scale: 1.05, duration: 1 }, "<")
+          .to(".device-label", { rotation: 3, x: 28, duration: 1 }, "<");
+      });
+
+      motion.add("(max-width: 899px)", () => {
+        gsap.to(".phone-panel", {
+          rotation: 372,
+          yPercent: -16,
+          ease: "none",
+          scrollTrigger: { trigger: ".device-table", start: "top 88%", end: "bottom 38%", scrub: 1 },
+        });
+        gsap.to(".device-orbit", {
+          rotation: 320,
+          ease: "none",
+          scrollTrigger: { trigger: ".device-table", start: "top 88%", end: "bottom 38%", scrub: 1 },
+        });
+      });
+
+      document.querySelectorAll<HTMLElement>(".poster-mark").forEach((mark) => {
+        gsap.fromTo(mark, { rotation: -30 }, {
+          rotation: 30,
+          ease: "none",
+          scrollTrigger: { trigger: mark, start: "top bottom", end: "bottom top", scrub: 1.2 },
+        });
+      });
+
+      gsap.to(".closing-arrow", {
+        x: 24,
+        rotation: 8,
+        ease: "none",
+        scrollTrigger: { trigger: ".closing-arrow", start: "top bottom", end: "bottom 55%", scrub: 0.7 },
+      });
+    }
+  </script>
+</BaseLayout>

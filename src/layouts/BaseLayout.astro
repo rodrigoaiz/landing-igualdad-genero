@@ -1,0 +1,37 @@
+---
+import "@fontsource/barlow-condensed/700.css";
+import "@fontsource/barlow-condensed/800.css";
+import "@fontsource/atkinson-hyperlegible/400.css";
+import "@fontsource/atkinson-hyperlegible/700.css";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#5146D9" />
+    <meta name="description" content={description} />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2218%22 fill=%22%235146D9%22/><path d=%22M25 65V32h15l10 17 10-17h15v33H62V51L50 69 38 51v14z%22 fill=%22%23F3D85B%22/></svg>" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <!--
+      THESIS: Una duda se convierte en una acción comprobable mediante una ruta continua; rechaza el catálogo educativo genérico como primer gesto.
+      OWN-WORLD: Papel mate, tinta ciruela y grandes campos índigo, turquesa, amarillo y coral; tipografía condensada, recortes precisos y trazos de pizarrón.
+      STORY: El estudiante entiende la guía, recorre cuatro acciones, distingue computadora de celular y filtra el tutorial que necesita.
+      FIRST VIEWPORT: Navegación compacta, titular dominante a la izquierda y una mesa visual de dispositivos a la derecha; el CTA aparece junto al mensaje.
+      FORM: Recorrido continuo de confirmación, quinta estructura; seed eeebd75b.
+      FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+    -->
+    <slot />
+  </body>
+</html>

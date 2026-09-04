@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-04T00:00:00.000Z",
+  "title": "Design System: Moodle para Igualdad de Género",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "neutral",
+        "displayName": "Tinta ciruela",
+        "canonical": "#201A32",
+        "tonalRamp": ["#201A32", "#403752", "#6F687E"]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Papel mate",
+        "canonical": "#FCFBF7",
+        "tonalRamp": ["#FCFBF7", "#F2F0EB", "#E6E2DE"]
+      },
+      "indigo": {
+        "role": "primary",
+        "displayName": "Índigo de acción",
+        "canonical": "#5146D9",
+        "tonalRamp": ["#5146D9", "#746BE3", "#AAA5F0"]
+      },
+      "violet": {
+        "role": "secondary",
+        "displayName": "Violeta de sección",
+        "canonical": "#7A4DE8",
+        "tonalRamp": ["#7A4DE8", "#9876ED", "#C7B5F6"]
+      },
+      "turquoise": {
+        "role": "secondary",
+        "displayName": "Turquesa de apoyo",
+        "canonical": "#28B9C5",
+        "tonalRamp": ["#28B9C5", "#5CCBD3", "#A9E7EB"]
+      },
+      "signal-yellow": {
+        "role": "tertiary",
+        "displayName": "Amarillo señal",
+        "canonical": "#F3D85B",
+        "tonalRamp": ["#F3D85B", "#F7E58D", "#FBF2C9"]
+      },
+      "coral": {
+        "role": "tertiary",
+        "displayName": "Coral humano",
+        "canonical": "#EB5B63",
+        "tonalRamp": ["#EB5B63", "#F1848A", "#F8C1C4"]
+      },
+      "lilac": {
+        "role": "neutral",
+        "displayName": "Lila de superficie",
+        "canonical": "#DCCBFF",
+        "tonalRamp": ["#DCCBFF", "#E9DFFF", "#F5F0FF"]
+      },
+      "muted-ink": {
+        "role": "neutral",
+        "displayName": "Tinta secundaria",
+        "canonical": "#6F687E",
+        "tonalRamp": ["#6F687E", "#948D9F", "#C5C0CC"]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Línea suave",
+        "canonical": "#D8D3DC",
+        "tonalRamp": ["#D8D3DC", "#E6E2E8", "#F2F0F4"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Cartel condensado",
+        "purpose": "Titulares de apertura y títulos de sección; una sola idea por bloque."
+      },
+      "body": {
+        "displayName": "Lectura accesible",
+        "purpose": "Pasos, resúmenes, ayuda y transcripciones."
+      },
+      "label": {
+        "displayName": "Metadato operativo",
+        "purpose": "Duración, dispositivo, categoría y estados breves."
+      }
+    },
+    "shadows": [
+      {
+        "name": "ambient-low",
+        "value": "0 8px 24px rgba(32, 26, 50, 0.12)",
+        "purpose": "Separar una ficha o poster de una banda de color."
+      },
+      {
+        "name": "focus-strong",
+        "value": "0 0 0 3px #F3D85B",
+        "purpose": "Anillo visible de foco de teclado."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.2, 0.8, 0.2, 1)",
+        "purpose": "Transiciones breves de navegación, filtros y expansión."
+      },
+      {
+        "name": "duration-fast",
+        "value": "160ms",
+        "purpose": "Cambios de color, foco y estado."
+      },
+      {
+        "name": "duration-content",
+        "value": "280ms",
+        "purpose": "Apertura de detalle o desplazamiento guiado; respetar prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "880px" },
+      { "name": "lg", "value": "1200px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "CTA para abrir el índice y comenzar una tarea.",
+      "html": "<a class=\"ds-button-primary\" href=\"#tutoriales\">Ver videotutoriales</a>",
+      "css": ".ds-button-primary { display:inline-flex; min-height:48px; align-items:center; justify-content:center; padding:12px 20px; border:0; border-radius:6px; background:#5146D9; color:#FCFBF7; font:700 0.75rem/1.2 Atkinson Hyperlegible,Arial,sans-serif; letter-spacing:0.08em; text-transform:uppercase; } .ds-button-primary:focus-visible { outline:3px solid #F3D85B; outline-offset:3px; }"
+    },
+    {
+      "name": "Category Chip",
+      "kind": "chip",
+      "refersTo": "category-chip",
+      "description": "Filtro o ancla que identifica categoría o dispositivo.",
+      "html": "<button class=\"ds-chip\" aria-pressed=\"false\">Celular</button>",
+      "css": ".ds-chip { min-height:44px; padding:8px 12px; border:1px solid #D8D3DC; border-radius:999px; background:#DCCBFF; color:#201A32; font:700 0.75rem/1.2 Atkinson Hyperlegible,Arial,sans-serif; } .ds-chip[aria-pressed=\"true\"] { border-color:#5146D9; background:#5146D9; color:#FCFBF7; }"
+    },
+    {
+      "name": "Tutorial Card",
+      "kind": "card",
+      "refersTo": "tutorial-card",
+      "description": "Ficha escaneable con video, resultado, dispositivo y duración.",
+      "html": "<article class=\"ds-tutorial-card\"><div class=\"ds-tutorial-card__meta\">COMPUTADORA · 02:10</div><h3>¿Cómo entregar una actividad?</h3><a href=\"#tutorial\">Ver tutorial</a></article>",
+      "css": ".ds-tutorial-card { padding:20px; border:1px solid #D8D3DC; border-radius:14px; background:#FCFBF7; color:#201A32; } .ds-tutorial-card__meta { margin-bottom:12px; color:#6F687E; font:700 0.75rem/1.2 Atkinson Hyperlegible,Arial,sans-serif; letter-spacing:0.08em; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "El pizarrón comunitario",
+    "overview": "La landing funciona como un pizarrón de aula abierto: orienta rápido, muestra la acción importante y usa color, collage y anotaciones para dar confianza sin competir con los tutoriales. El papel mate y la tinta oscura sostienen la lectura; los bloques índigo, violeta, turquesa, amarillo y coral ordenan la experiencia.",
+    "keyCharacteristics": [
+      "Contraste entre papel, tinta y bloques saturados",
+      "Titulares condensados y cuerpo accesible",
+      "Anotaciones como apoyo, nunca como contenido único",
+      "Consulta directa sin carruseles ni progreso inventado"
+    ],
+    "rules": [
+      { "name": "La regla de una tinta", "body": "Un bloque conserva una jerarquía de contraste clara y no acumula acentos sin función.", "section": "colors" },
+      { "name": "La regla de no depender del color", "body": "Todo estado o categoría también tiene texto, icono, forma o posición.", "section": "colors" },
+      { "name": "Plano en reposo", "body": "La jerarquía proviene de estructura y contraste; la sombra se reserva para separación y foco.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do reservar la saturación para acciones, bandas y agrupaciones.",
+      "Do mostrar resultado esperado, duración y dispositivo en cada tutorial.",
+      "Do validar los activos contra permisos, contraste y contenido real."
+    ],
+    "donts": [
+      "Don't copiar literalmente los recursos de las referencias.",
+      "Don't ocultar tutoriales importantes tras carruseles.",
+      "Don't usar color, sombra o mockups para suplir información no verificada."
+    ]
+  }
+}
