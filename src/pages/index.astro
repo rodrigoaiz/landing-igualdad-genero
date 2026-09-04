@@ -4,6 +4,7 @@ import AssignmentSection from "../components/AssignmentSection.astro";
 import ClosingSection from "../components/ClosingSection.astro";
 import HelpSection from "../components/HelpSection.astro";
 import HeroSection from "../components/HeroSection.astro";
+import MoodleSection from "../components/MoodleSection.astro";
 import ProofStrip from "../components/ProofStrip.astro";
 import QuickRoute from "../components/QuickRoute.astro";
 import ResourceRepository from "../components/ResourceRepository.astro";
@@ -26,6 +27,7 @@ import { externalResources, featuredVideos, routeSteps } from "../data/landing";
     <HeroSection />
     <ProofStrip />
     <AssignmentSection />
+    <MoodleSection />
     <QuickRoute steps={routeSteps} />
     <VideoLibrary videos={featuredVideos} />
     <ResourceRepository resources={externalResources} />

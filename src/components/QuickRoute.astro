@@ -11,10 +11,9 @@ const { steps } = Astro.props;
 <section id="ruta" class="route-section bg-ink py-20 text-paper sm:py-28">
   <div class="container-page">
     <div class="grid gap-6 lg:grid-cols-[0.82fr_1.18fr]">
-      <h2 class="section-title">Tu entrada empieza antes del botón.</h2>
-      <p class="body-copy text-paper/80 lg:pt-3">Sigue el orden si es tu primera vez. La ruta te ayuda a llegar al tutorial correcto; no guarda ni consulta tu avance personal.</p>
+      <h2 class="section-title">Sigue la siguiente ruta:</h2>
+      <p class="body-copy text-paper/80 lg:pt-3">Sigue el orden si es tu primera vez. La ruta te ayuda a llegar a la asignatura.</p>
     </div>
-
     <div class="route-shell mt-14">
       <svg class="route-path" viewBox="0 0 100 1000" preserveAspectRatio="none" aria-hidden="true"><path data-route-line d="M45 10 C92 120, 7 205, 52 310 S90 505, 38 615 S12 820, 60 990" pathLength="1"></path></svg>
       {steps.map((step, index) => (
