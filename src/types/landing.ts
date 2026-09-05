@@ -2,6 +2,12 @@ export type VideoAccent = "turquoise" | "yellow" | "coral" | "violet";
 
 export type ResourceCategory = "actividades" | "celular" | "foros" | "evaluaciones";
 
+export interface NavigationItem {
+  label: string;
+  href: string;
+  primary?: boolean;
+}
+
 export interface FeaturedVideo {
   id: string;
   anchor: string;
@@ -18,7 +24,7 @@ export interface FeaturedVideo {
 export interface RouteStep {
   action: string;
   result: string;
-  link: string;
+  link?: string;
 }
 
 export interface ExternalResource {

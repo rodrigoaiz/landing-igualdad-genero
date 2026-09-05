@@ -15,13 +15,16 @@ const { steps } = Astro.props;
       <p class="body-copy text-paper/80 lg:pt-3">Sigue el orden si es tu primera vez. La ruta te ayuda a llegar a la asignatura.</p>
     </div>
     <div class="route-shell mt-14">
-      <svg class="route-path" viewBox="0 0 100 1000" preserveAspectRatio="none" aria-hidden="true"><path data-route-line d="M45 10 C92 120, 7 205, 52 310 S90 505, 38 615 S12 820, 60 990" pathLength="1"></path></svg>
+      <svg class="route-path" viewBox="0 0 100 1000" preserveAspectRatio="none" aria-hidden="true"><path data-route-line d="M45 10 C92 120, 7 205, 52 310 S90 505, 38 615 S12 820, 60 990"></path></svg>
       {steps.map((step, index) => (
         <article class="route-card">
+          <span class="route-marker" aria-hidden="true"></span>
           <div class="route-number" aria-hidden="true">0{index + 1}</div>
           <h3 class="route-action">{step.action}</h3>
-          <p class="route-result">{step.result}</p>
-          <a class="route-link" href={step.link}>Continuar por aquí <span aria-hidden="true">→</span></a>
+          <p class="route-result" set:html={step.result} />
+          {step.link && (
+            <a class="route-link" href={step.link}>Mira el video correspondiente <span aria-hidden="true">→</span></a>
+          )}
         </article>
       ))}
     </div>

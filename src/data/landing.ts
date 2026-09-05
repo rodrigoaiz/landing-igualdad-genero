@@ -1,4 +1,12 @@
-import type { ExternalResource, FeaturedVideo, RouteStep } from "../types/landing";
+import type { ExternalResource, FeaturedVideo, NavigationItem, RouteStep } from "../types/landing";
+
+export const navigationItems: readonly NavigationItem[] = [
+  { label: "Lo primero", href: "#asignatura" },
+  { label: "¿Qué es Moodle?", href: "#que-es-moodle" },
+  { label: "La ruta", href: "#ruta" },
+  { label: "Preguntas", href: "#ayuda" },
+  { label: "Ver tutoriales", href: "#videos", primary: true },
+];
 
 export const featuredVideos = [
   {
@@ -71,22 +79,26 @@ export const routeSteps = [
   {
     action: "Revisa tu tira de materias",
     result: "Ahí identificas si Igualdad de Género te corresponde en el primer o segundo semestre.",
-    link: "#video-ingresar",
-  },
-  {
-    action: "Confirma el momento",
-    result: "La asignatura debe cursarse durante el primer año, según la asignación de tu grupo.",
-    link: "#asignatura",
   },
   {
     action: "Entra a la plataforma",
-    result: "Desde computadora o celular, visita asignaturas.cch.unam.mx y elige «Ingresar».",
+    result: "Desde una computadora o celular, visita <a href=\"https://asignaturas.cch.unam.mx\" target=\"_blank\" rel=\"noopener noreferrer\">asignaturas.cch.unam.mx</a> y elige «Ingresar».",
     link: "#video-ingresar",
   },
   {
-    action: "Elige qué necesitas resolver",
-    result: "Ve directo al video de ingreso, entrega, foro o seguimiento que corresponda a tu duda.",
-    link: "#videos",
+    action: "Ingresa correctamente tus datos",
+    result: "Tu usuario es tu número de cuenta sin guiones y la contraseña es tu fecha de nacimiento en formato DDMMAAAA (Ejemplo: 31122005).",
+    link: "#video-ingresar",
+  },
+  {
+    action: "Inscribete a la asignatura",
+    result: "Necesitas el código de inscripción que te proporcionar´á tu prfesora o profesor. Mira el video de ingreso si necesitas ayuda.",
+    link: "#video-ingresar",
+  },
+  {
+    action: "Ya estás dentro de la asignatura",
+    result: "Ahora puedes consultar los materiales, entregar actividades y participar en los foros. Da clic en: <span class=\"text-indigo-500 font-bold\">'Acceso a la asignatura 👈'</span>",
+    link: "#video-ingresar",
   },
 ] satisfies readonly RouteStep[];
 

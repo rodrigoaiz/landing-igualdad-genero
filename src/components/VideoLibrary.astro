@@ -11,11 +11,16 @@ const { videos } = Astro.props;
 
 <section id="videos" class="video-library">
   <div class="video-intro bg-paper py-20 sm:py-28">
-    <div class="container-page grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-      <h2 class="section-title">Cuatro tutoriales para usar Moodle en tu asignatura</h2>
-      <div class="lg:pt-3">
-        <p class="body-copy">No necesitas recorrer un catálogo interminable. Empieza por la duda que tienes y sigue los pasos hasta reconocer qué ocurrió.</p>
-        <p class="mt-5 max-w-xl border-t border-coral pt-4 font-bold">No importa desde dónde consultes el tutorial: sigue el procedimiento y revisa la señal final antes de continuar.</p>
+    <div class="video-intro-grid container-page grid gap-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-10">
+      <div class="video-intro-copy">
+        <h2 class="section-title">Te ofrecemos video tutoriales para usar Moodle</h2>
+        <div class="lg:pt-3">
+          <p class="body-copy">Empieza por la duda que tienes y sigue los pasos para resolverla.</p>
+          <p class="mt-5 max-w-xl border-t border-coral pt-4 font-bold">Consulta los videos en el orden que aparecen para seguir una guía completa. </p>
+        </div>
+      </div>
+      <div class="video-intro-art">
+        <img src="/assets/illustrations/mujer-celular.webp" alt="Estudiante consultando Moodle desde su celular" width="1180" height="1333" loading="lazy" decoding="async" />
       </div>
     </div>
   </div>

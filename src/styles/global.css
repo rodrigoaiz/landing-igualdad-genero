@@ -475,9 +475,10 @@ summary:focus-visible {
 .route-path {
   position: absolute;
   top: 1rem;
-  bottom: 3rem;
+  bottom: auto;
   left: 2rem;
   width: 5rem;
+  height: calc(100% - 4rem);
   overflow: visible;
 }
 
@@ -486,8 +487,8 @@ summary:focus-visible {
   stroke: var(--color-yellow);
   stroke-linecap: round;
   stroke-width: 8;
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
+  stroke-dasharray: none;
+  stroke-dashoffset: 0;
 }
 
 .route-card {
@@ -497,7 +498,7 @@ summary:focus-visible {
   padding-block: clamp(2rem, 6vw, 5rem);
 }
 
-.route-card::before {
+.route-marker {
   position: absolute;
   top: clamp(2rem, 6vw, 5rem);
   left: calc(clamp(6.5rem, 14vw, 12rem) * -1 + 1.3rem);
@@ -508,6 +509,17 @@ summary:focus-visible {
   border-radius: 999px;
   background: var(--color-yellow);
   box-shadow: 0 0 0 0.25rem var(--color-yellow);
+}
+
+.route-marker::after {
+  position: absolute;
+  inset: 50%;
+  width: 0.35rem;
+  aspect-ratio: 1;
+  content: "";
+  border-radius: 999px;
+  background: var(--color-ink);
+  transform: translate(-50%, -50%);
 }
 
 .route-number {
@@ -533,6 +545,33 @@ summary:focus-visible {
   line-height: 1.55;
 }
 
+.route-result a {
+  color: var(--color-yellow);
+  font-weight: 700;
+  text-decoration: none;
+  padding-bottom: 0.2em;
+  background-image: linear-gradient(var(--color-yellow), var(--color-yellow));
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  background-size: 100% 3px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  transition: background-size 180ms var(--ease-out-expo);
+}
+
+.route-result a:hover,
+.route-result a:focus-visible {
+  background-size: 100% 6px;
+}
+
+@media (forced-colors: active) {
+  .route-result a {
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 0.2em;
+  }
+}
+
 .route-link {
   display: inline-flex;
   min-height: 2.75rem;
@@ -549,6 +588,46 @@ summary:focus-visible {
 
 .video-intro strong {
   display: block;
+}
+
+.video-intro-art {
+  position: relative;
+  min-height: 17rem;
+  isolation: isolate;
+}
+
+.video-intro-art::before {
+  position: absolute;
+  z-index: -1;
+  top: 8%;
+  right: 4%;
+  width: 86%;
+  height: 82%;
+  content: "";
+  transform: rotate(7deg);
+  border-radius: 48% 52% 44% 56% / 55% 42% 58% 45%;
+  background: var(--color-lilac);
+}
+
+.video-intro-art::after {
+  position: absolute;
+  right: 0;
+  bottom: 6%;
+  width: 2.4rem;
+  aspect-ratio: 1;
+  content: "";
+  transform: rotate(15deg);
+  background: var(--color-yellow);
+  clip-path: polygon(50% 0, 62% 35%, 100% 50%, 64% 62%, 50% 100%, 38% 64%, 0 50%, 36% 36%);
+}
+
+.video-intro-art img {
+  display: block;
+  width: min(100%, 15rem);
+  height: 100%;
+  margin-inline: auto;
+  object-fit: contain;
+  object-position: bottom;
 }
 
 .featured-video {
@@ -920,11 +999,27 @@ summary:focus-visible {
   content: "−";
 }
 
+.faq-content {
+  height: 0;
+  overflow: hidden;
+  transition: height 360ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.faq-item[open] .faq-content {
+  height: auto;
+}
+
 .faq-item p {
   max-width: 62ch;
   padding-bottom: 1.5rem;
   color: color-mix(in srgb, var(--color-paper) 82%, var(--color-indigo));
   line-height: 1.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-content {
+    transition: none;
+  }
 }
 
 .closing-section {
@@ -1022,7 +1117,7 @@ summary:focus-visible {
     margin-left: 4rem;
   }
 
-  .route-card::before {
+  .route-marker {
     left: -3.6rem;
   }
 
