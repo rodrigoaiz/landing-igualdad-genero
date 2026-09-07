@@ -184,7 +184,14 @@ export function initLanding() {
   }
 
   gsap.from(".hero-copy > *", { y: 34, opacity: 0, duration: 0.8, stagger: 0.1, ease: "expo.out" });
-  gsap.from(".hero-illustration", { x: 75, rotation: 8, opacity: 0, duration: 0.95, ease: "expo.out" });
+  const heroIntro = gsap.timeline({ defaults: { ease: "expo.out" } });
+  heroIntro
+    .from(".hero-backdrop-lilac", { scale: 0.82, rotation: -12, opacity: 0, duration: 0.8 }, 0)
+    .from(".hero-backdrop-star", { scale: 0.5, rotation: -20, opacity: 0, duration: 0.65 }, 0.14)
+    .from(".hero-paper-card", { x: 42, y: -24, rotation: 12, opacity: 0, duration: 0.8 }, 0.12)
+    .fromTo(".hero-illustration-wrap", { x: 75, rotation: 8, opacity: 0 }, { x: 0, rotation: 0, opacity: 1, duration: 0.95 }, 0.2)
+    .from(".hero-note", { x: 24, rotation: -12, opacity: 0, duration: 0.55 }, 0.56)
+    .from(".hero-orbit", { scale: 0.5, opacity: 0, duration: 0.55 }, 0.64);
   gsap.to(".scroll-progress", { scaleX: 1, ease: "none", scrollTrigger: { trigger: document.documentElement, start: "top top", end: "bottom bottom", scrub: 0.2 } });
   gsap.to(".hero-illustration", { yPercent: 10, rotation: -3, ease: "none", scrollTrigger: { trigger: "#inicio", start: "top top", end: "bottom top", scrub: 1 } });
   gsap.to(".hero-orbit", { rotation: 280, y: -50, ease: "none", scrollTrigger: { trigger: "#inicio", start: "top top", end: "bottom top", scrub: 0.8 } });

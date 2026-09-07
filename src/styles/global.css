@@ -210,24 +210,25 @@ summary:focus-visible {
   isolation: isolate;
 }
 
-.hero-board::before {
+.hero-backdrop {
   position: absolute;
+  pointer-events: none;
+}
+
+.hero-backdrop-lilac {
   z-index: -2;
   inset: 9% 4% 8% 8%;
-  content: "";
   transform: rotate(-4deg);
   border-radius: 48% 52% 42% 58% / 45% 38% 62% 55%;
   background: var(--color-lilac);
 }
 
-.hero-board::after {
-  position: absolute;
+.hero-backdrop-star {
   z-index: -1;
   top: 4%;
   right: 3%;
   width: 28%;
   aspect-ratio: 1;
-  content: "";
   transform: rotate(14deg);
   background: var(--color-yellow);
   clip-path: polygon(50% 0, 62% 35%, 100% 50%, 64% 62%, 50% 100%, 38% 64%, 0 50%, 36% 36%);
@@ -280,13 +281,19 @@ summary:focus-visible {
   opacity: 1;
 }
 
-.hero-illustration {
+.hero-illustration-wrap {
   position: absolute;
   z-index: 2;
   right: 10%;
   bottom: -1%;
   width: min(65%, 25rem);
-  max-height: 95%;
+  height: 95%;
+}
+
+.hero-illustration {
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   object-position: bottom;
 }
@@ -1068,7 +1075,7 @@ summary:focus-visible {
     width: 77%;
   }
 
-  .hero-illustration {
+  .hero-illustration-wrap {
     right: 9%;
     width: 70%;
   }
