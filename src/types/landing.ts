@@ -11,6 +11,8 @@ export interface NavigationItem {
 export interface FeaturedVideo {
   id: string;
   anchor: string;
+  routeAnchor: string;
+  routeLabel: string;
   label: string;
   title: string;
   intro: string;
@@ -22,6 +24,7 @@ export interface FeaturedVideo {
 }
 
 export interface RouteStep {
+  anchor: string;
   action: string;
   result: string;
   link?: string;

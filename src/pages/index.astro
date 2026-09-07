@@ -7,11 +7,10 @@ import HeroSection from "../components/HeroSection.astro";
 import MoodleSection from "../components/MoodleSection.astro";
 import ProofStrip from "../components/ProofStrip.astro";
 import QuickRoute from "../components/QuickRoute.astro";
-import ResourceRepository from "../components/ResourceRepository.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 import VideoLibrary from "../components/VideoLibrary.astro";
-import { externalResources, featuredVideos, routeSteps } from "../data/landing";
+import { featuredVideos, routeSteps } from "../data/landing";
 ---
 
 <BaseLayout
@@ -30,7 +29,6 @@ import { externalResources, featuredVideos, routeSteps } from "../data/landing";
     <MoodleSection />
     <QuickRoute steps={routeSteps} />
     <VideoLibrary videos={featuredVideos} />
-    <ResourceRepository resources={externalResources} />
     <HelpSection />
     <ClosingSection />
   </main>

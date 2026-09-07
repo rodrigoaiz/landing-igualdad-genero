@@ -41,7 +41,7 @@ Los tutoriales principales se presentan como cuatro secciones corridas dentro de
 
 1. **Ingresa a la asignatura de Igualdad de Género.** Revisa la tira de materias, identifica el semestre, entra a `asignaturas.cch.unam.mx` y elige «Ingresar».
 2. **Entrega una actividad sin dejarla a medias.** Distingue entre responder o adjuntar un archivo y confirmar la entrega.
-3. **Participa en un foro de la asignatura.** Lee la consigna, inicia o responde una participación y revisa lo que publicas.
+3. **Participa en un foro de la asignatura.** Lee la , inicia o responde una participación y revisa lo que publicas.
 4. **Consulta tu avance, calificaciones y retroalimentación.** Ubica lo que ya aparece registrado y lo que todavía depende de publicación o revisión.
 
 Cada sección debe incluir video, subtítulos, transcripción, pasos y confirmación final. Computadora y celular se documentan dentro del procedimiento real que el equipo valide, sin duplicar la navegación en una colección de tarjetas.

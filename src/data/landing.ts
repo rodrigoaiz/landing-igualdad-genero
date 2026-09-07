@@ -12,6 +12,8 @@ export const featuredVideos = [
   {
     id: "01",
     anchor: "video-ingresar",
+    routeAnchor: "ruta-paso-2",
+    routeLabel: "Entra a la plataforma",
     label: "Primer acceso",
     title: "Ingresa a la asignatura de Igualdad de Género",
     intro: "En este video encontrarás un tutorial sobre cómo ingresar a la asignatura de Igualdad de Género a través de la plataforma Moodle.",
@@ -28,9 +30,11 @@ export const featuredVideos = [
   {
     id: "02",
     anchor: "video-entregar",
+    routeAnchor: "ruta-paso-5",
+    routeLabel: "Ya estás dentro de la asignatura",
     label: "Actividad",
     title: "Entrega una actividad sin dejarla a medias",
-    intro: "Una actividad puede pedirte una respuesta, un archivo o ambas cosas. Este tutorial te acompaña desde la consigna hasta la entrega.",
+    intro: "Una actividad puede pedirte una respuesta, un archivo o ambas cosas. Este tutorial te acompaña desde las instrucciones hasta la entrega.",
     context: "Antes de comenzar, lee qué solicita la actividad y prepara el archivo o la respuesta que vas a enviar. Subir un archivo no siempre significa que la actividad ya fue entregada.",
     steps: [
       "Abre la actividad de Igualdad de Género que vas a resolver y revisa sus indicaciones.",
@@ -44,12 +48,14 @@ export const featuredVideos = [
   {
     id: "03",
     anchor: "video-foro",
+    routeAnchor: "ruta-paso-5",
+    routeLabel: "Ya estás dentro de la asignatura",
     label: "Participación",
     title: "Participa en un foro de la asignatura",
-    intro: "Los foros son espacios para leer una consigna, escribir tu participación y continuar la conversación con tu grupo.",
-    context: "Lee las participaciones existentes antes de responder. Así puedes distinguir entre crear una nueva participación y responder dentro de un hilo que ya comenzó.",
+    intro: "Los foros son espacios para leer una pregunta guía, escribir tu participación, recibir una respuesta y continuar la conversación con tu grupo.",
+    context: "Primero lee las participaciones existentes antes de responder. Así puedes distinguir entre crear una nueva participación y responder dentro de un hilo que ya comenzó.",
     steps: [
-      "Entra al foro desde el espacio de la asignatura y revisa la consigna completa.",
+      "Entra al foro desde el espacio de la asignatura y revisa el tema a discutir.",
       "Elige si necesitas iniciar una participación o responder a una publicación existente.",
       "Escribe tu respuesta, revisa si necesitas agregar un archivo o imagen y publícala.",
     ],
@@ -60,10 +66,12 @@ export const featuredVideos = [
   {
     id: "04",
     anchor: "video-comprobar",
+    routeAnchor: "ruta-paso-5",
+    routeLabel: "Ya estás dentro de la asignatura",
     label: "Seguimiento",
     title: "Consulta tu avance, calificaciones y retroalimentación",
     intro: "Terminar una actividad también implica saber qué ocurrió después: qué aparece como completado, qué calificación está disponible y qué comentarios dejó el docente.",
-    context: "La información puede publicarse en momentos distintos. Una calificación o retroalimentación que todavía no aparece no necesariamente significa que tu actividad esté mal.",
+    context: "La información puede publicarse en momentos distintos. Una calificación o retroalimentación que todavía no aparece no significa que tu actividad esté mal. Es muy probable que tu profesora o profesor aún no la haya revisado/calificado.",
     steps: [
       "Vuelve a la actividad o espacio del curso que quieres revisar.",
       "Busca la información de avance o calificación disponible para esa actividad.",
@@ -77,25 +85,30 @@ export const featuredVideos = [
 
 export const routeSteps = [
   {
+    anchor: "ruta-paso-1",
     action: "Revisa tu tira de materias",
     result: "Ahí identificas si Igualdad de Género te corresponde en el primer o segundo semestre.",
   },
   {
+    anchor: "ruta-paso-2",
     action: "Entra a la plataforma",
     result: "Desde una computadora o celular, visita <a href=\"https://asignaturas.cch.unam.mx\" target=\"_blank\" rel=\"noopener noreferrer\">asignaturas.cch.unam.mx</a> y elige «Ingresar».",
     link: "#video-ingresar",
   },
   {
+    anchor: "ruta-paso-3",
     action: "Ingresa correctamente tus datos",
     result: "Tu usuario es tu número de cuenta sin guiones y la contraseña es tu fecha de nacimiento en formato DDMMAAAA (Ejemplo: 31122005).",
     link: "#video-ingresar",
   },
   {
-    action: "Inscribete a la asignatura",
-    result: "Necesitas el código de inscripción que te proporcionar´á tu prfesora o profesor. Mira el video de ingreso si necesitas ayuda.",
+    anchor: "ruta-paso-4",
+    action: "Inscríbete a la asignatura",
+    result: "Necesitas el código de inscripción que te proporcionará tu profesora o profesor. Mira el video de ingreso si necesitas ayuda.",
     link: "#video-ingresar",
   },
   {
+    anchor: "ruta-paso-5",
     action: "Ya estás dentro de la asignatura",
     result: "Ahora puedes consultar los materiales, entregar actividades y participar en los foros. Da clic en: <span class=\"text-indigo-500 font-bold\">'Acceso a la asignatura 👈'</span>",
     link: "#video-ingresar",
