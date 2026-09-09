@@ -255,7 +255,7 @@ export function initLanding() {
   }
 
   document.querySelectorAll<HTMLElement>(".featured-video").forEach((section, index) => {
-    const preview = section.querySelector<HTMLElement>(".video-preview");
+    const preview = section.querySelector<HTMLElement>(".video-preview, .video-embed");
     const copy = section.querySelector<HTMLElement>(".video-copy");
     if (preview) gsap.from(preview, { x: index % 2 === 0 ? (compactMotion ? -28 : -70) : (compactMotion ? 28 : 70), rotation: index % 2 === 0 ? -3 : 3, ease: "none", scrollTrigger: { trigger: section, start: "top 82%", end: "top 34%", scrub: 0.8 } });
     if (copy) gsap.from(copy, { x: index % 2 === 0 ? (compactMotion ? 18 : 45) : (compactMotion ? -18 : -45), ease: "none", scrollTrigger: { trigger: section, start: "top 82%", end: "top 42%", scrub: 0.8 } });
