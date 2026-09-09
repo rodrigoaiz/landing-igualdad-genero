@@ -21,6 +21,7 @@ export interface FeaturedVideo {
   result: string;
   accent: VideoAccent;
   posterLabel: string;
+  embedUrl?: string;
 }
 
 export interface RouteStep {

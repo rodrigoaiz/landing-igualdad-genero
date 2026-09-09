@@ -10,16 +10,29 @@ const { video } = Astro.props;
 
 <article id={video.anchor} class:list={["featured-video", `feature-${video.accent}`]}>
   <div class="container-page grid gap-10 py-20 sm:py-28 lg:grid-cols-[0.88fr_1.12fr] lg:items-start lg:gap-16">
-    <div class="video-preview" role="img" aria-label={`Espacio para el video: ${video.title}`}>
-      <div class="video-preview-top"><span>VIDEO {video.id}</span><span>RECURSO PRINCIPAL</span></div>
-      <div class="video-preview-body">
-        <span class="video-index">{video.id}</span>
-        <span class="video-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 7 8 5-8 5z" fill="currentColor" /></svg></span>
-        <strong>{video.posterLabel}</strong>
-        <small>Procedimiento guiado con subtítulos y transcripción.</small>
+    {video.embedUrl ? (
+      <div class="video-embed">
+        <iframe
+          src={video.embedUrl}
+          title={`Videotutorial: ${video.title}`}
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
       </div>
-      <div class="video-preview-footer"><span>Subtítulos</span><span>Transcripción</span><span>Acceso sin autoplay</span></div>
-    </div>
+    ) : (
+      <div class="video-preview" role="img" aria-label={`Espacio para el video: ${video.title}`}>
+        <div class="video-preview-top"><span>VIDEO {video.id}</span><span>RECURSO PRINCIPAL</span></div>
+        <div class="video-preview-body">
+          <span class="video-index">{video.id}</span>
+          <span class="video-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m9 7 8 5-8 5z" fill="currentColor" /></svg></span>
+          <strong>{video.posterLabel}</strong>
+          <small>Procedimiento guiado con subtítulos y transcripción.</small>
+        </div>
+        <div class="video-preview-footer"><span>Subtítulos</span><span>Transcripción</span><span>Acceso sin autoplay</span></div>
+      </div>
+    )}
 
     <div class="video-copy">
       <a class="video-route-link" href={`#${video.routeAnchor}`}>

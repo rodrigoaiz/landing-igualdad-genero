@@ -26,6 +26,7 @@ export const featuredVideos = [
     result: "Llegaste al acceso institucional y puedes continuar con el ingreso a Moodle.",
     accent: "turquoise",
     posterLabel: "Acceso a asignaturas.cch.unam.mx",
+    embedUrl: "https://www.youtube-nocookie.com/embed/9gs79OqIMFg?rel=0",
   },
   {
     id: "02",
